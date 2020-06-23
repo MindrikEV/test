@@ -1,0 +1,36 @@
+pipeline {
+   agent { docker {image 'python:3.7' }}
+
+   environment {
+       PROJECT_NAME = "Trololo"
+       OWNER_NAME   = "Ev"
+   }
+
+   stages {
+      stage('Stage 1 (build)') {
+         steps {
+            echo 'Start'
+            echo 'Build'
+            echo 'Finish'
+         }
+      }
+      stage('Stage 1 (test)') {
+         steps {
+            echo 'Start'
+            echo "Hello ${OWNER_NAME}"
+            echo 'Finish'
+            sh '''
+                echo "Line 1"
+            '''
+         }
+      }
+      stage('Stage 1 (deploy)') {
+         steps {
+            echo 'Start'
+            echo 'Deploy'
+            echo 'Finish'
+            sh "python --version"
+         }
+      }
+   }
+}
