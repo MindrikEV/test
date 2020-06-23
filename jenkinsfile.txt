@@ -29,7 +29,6 @@ pipeline {
             echo 'Start'
             echo 'Deploy'
             echo 'Finish'
-            sh "python --version"
          }
       }
    }
